@@ -59,8 +59,30 @@ Will be available under Appearance tab
 For backend development it should be like this:
 
 * Git
-* Maven
+
+```
+sudo apt update
+sudo apt install git
+git --version
+```
+
 * JDK
+To install Openjdk 11 in Ubuntu, the following commands should work:
+
+```
+sudo add-apt-repository ppa:openjdk-r/ppa
+sudo apt-get update
+sudo apt install openjdk-11-jdk
+```
+
+* Maven
+
+```
+sudo apt update
+sudo apt install maven
+mvn -version
+```
+
 * Python
 
 ```
@@ -73,6 +95,47 @@ python --version
 
 * Docker
 
+1. First, Uninstall old versions. Older versions of Docker were called docker, docker.io, or docker-engine
+
+```
+sudo apt-get remove docker docker-engine docker.io containerd runc
+```
+
+2. Update the apt package index and install packages to allow apt to use a repository over HTTPS:
+
+```
+sudo apt-get update
+sudo apt-get install apt-transport-https  ca-certificates curl gnupg lsb-release
+```
+	
+3. Add Docker’s official GPG key:
+
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
+
+4. Use the following command to set up the stable repository. To add the nightly or test repository, add the word nightly or test (or both) after the word stable in the commands below.
+
+```
+echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+5. Install engine
+
+```
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+testing:
+
+```
+sudo docker run hello-world
+```
+
+
 # Web
 
 * Chrome
@@ -84,21 +147,72 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 ```
 
 * Curl
+
+```
+sudo apt update
+sudo apt install curl
+curl --version
+```
+
 * OpenVPN
+
+```
+sudo apt-get -y install network-manager-openvpn
+sudo service network-manager restart
+```
+
+After installation condifure the VPN-connection.
+
+1. Click the network icon in the upper right corner of the activity field and choose VPN-connections -> Configure VPN.
+2. Choose Import a saved VPN configuration in a .ovpn file
 
 # Dev tools
 
-* Eclipse
-* PyCharm
+* [Eclipse](https://www.eclipse.org/downloads/)
+* [PyCharm](https://www.jetbrains.com/pycharm/download/#section=linux)
 
 # Data science
 
 * Anaconda
 
+1. Check the developer’s download page to view the newest version. Let's say it's 2020.02
+
+```
+cd /tmp
+curl –O https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
+sha256sum Anaconda3–2020.02–Linux–x86_64.sh
+```
+
+The Anaconda installer is a bash script. To run the installation script, use the command:
+
+```
+bash Anaconda3-2020.02-Linux-x86_64.sh
+```
+
 # Text editors
 
 * Sublime
+
+Add the official Sublime Text repository:
+
+```
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+```
+
+Installing package:
+
+```
+sudo apt update
+sudo apt install sublime-text
+```
+
 * Geany
+
+```
+sudo apt-get update -y
+sudo apt-get install -y geany
+```
 
 
 # File managers
@@ -159,6 +273,13 @@ sudo apt upgrade
 ```
 
 * Zoom
+
+Download the DEB installer file from [Download Center](https://zoom.us/download?os=linux)
+
+```
+sudo apt update
+sudo apt install ./zoom_amd64.deb
+```
 
 
 # VCS related

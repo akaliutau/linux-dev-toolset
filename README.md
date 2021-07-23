@@ -179,8 +179,8 @@ After installation condifure the VPN-connection.
 
 ```
 cd /tmp
-curl –O https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
-sha256sum Anaconda3–2020.02–Linux–x86_64.sh
+curl -O https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
+sha256sum Anaconda3-2020.02-Linux-x86_64.sh
 ```
 
 The Anaconda installer is a bash script. To run the installation script, use the command:

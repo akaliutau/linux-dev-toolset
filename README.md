@@ -16,7 +16,7 @@ For example, when using [Rufus](https://rufus.ie/) for UEFI-compatible system, c
 
 ## Install new themes:
 
-1. Find a theme you want to use on your system, f.e. [OpenDesktop.org](https://OpenDesktop.org)
+1. Find a theme you want to use on your system, f.e. [GTK3/4 Themes](https://www.opendesktop.org/s/Gnome/browse?cat=135&ord=latest)
 2. Download a tar-archive with theme
 3. When you find the file, use tar to unpack it f.e.
 

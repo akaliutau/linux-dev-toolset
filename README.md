@@ -37,7 +37,9 @@ sudo cp -r ~/Downloads/Dark-Theme-GTK_2.8 /usr/share/themes/
 5. Open your desktop environment’s settings. Look for the Appearance/Themes option. If you’re on GNOME, you’ll need to install gnome-tweak-tool. Open a terminal and install it:
 
 ```
+sudo apt update
 sudo apt install gnome-tweak-tool
+gnome-tweaks
 ```
 
 6. Select the Appearance tab and choose the installed theme.
@@ -48,7 +50,9 @@ sudo apt install gnome-tweak-tool
 Install extra features to tweak effects:
 
 ```
+sudo apt update
 sudo apt install gnome-tweaks
+gnome-tweaks
 ```
 
 Will be available under Appearance tab

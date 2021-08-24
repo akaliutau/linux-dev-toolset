@@ -71,7 +71,7 @@ Save, and restart bluetoothd:
 sudo service bluetooth restart
 ```
 
-Obtaining key:
+Obtaining key (option 1):
 
 When you turn on the device, a popup should appear, asking if you want to authorize the connecting bluetooth device.
 
@@ -85,6 +85,27 @@ Swithch off mouse before starting Windows and do not reconnect. The finger/touch
 
 4. Go to HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\BTHPORT\Parameters\keys\computer MAC\device MAC
 
+Obtaining key (option 2):
+
+Some devices may have a different set of hives at different locations (see the slide\bluetooth.png):
+
+The first number is the MAC address of the Bluetooth adapter, which can also be written in standard format as 
+
+d2:2e:73:48:17:09
+
+And the second  number is the mouse address that was assigned during the pairing. We will need those numbers in the next steps.
+
+98:2c:bc:72:bd:a6
+
+Now boot again to Linux. The mouse wont paired automatically, because it is now assigned to a different address and with different keys. Let's fix it.
+
+$ cd /var/lib/bluetooth/d2:2e:73:48:17:09/
+$ ls
+cache 84:AB:D4:A2:5F:E1 settings
+If you look closely, the mouse address is not the same as in Windows. In this case each group is different. We need the device addresses to match, so rename the file.
+
+
+
 Settings on Linux side:
 
 1. Switch to root: su -
@@ -93,13 +114,46 @@ Settings on Linux side:
 
 3. Here you'll find folders for each device you've paired with. The folder names being the Bluetooth devices MAC addresses and contain a single file info. In these files, you'll see the link key you need to replace with your Windows ones, like so:
 
+```
 [LinkKey]
 Key=B99999999FFFFFFFFF999999999FFFFF
+```
 
-5. Once updated, restart your Bluetooth service in one of the following ways, and then it works! 
+5. Once updated, restart your Bluetooth service in one of the following ways. 
 
-  
+Here is an example of Windows' registry section for the paired mouse
+```
+[General]
+Name=Logitech Pebble
+Appearance=0x03c2
+AddressType=static
+SupportedTechnologies=LE;
+Trusted=true
+Blocked=false
+Services=00001800-0000-1000-8000-00805f9b34fb;00001801-0000-1000-8000-00805f9b34fb;0000180a-0000-1000-8000-00805f9b34fb;0000180f-0000-1000-8000-00805f9b34fb;00001812-0000-1000-8000-00805f9b34fb;00010000-0000-1000-8000-011f2000046d;
 
+[ConnectionParameters]
+MinInterval=6
+MaxInterval=9
+Latency=44
+Timeout=216
+
+[IdentityResolvingKey]
+Key=211FC2ACCCE247ECD292D87B332CA7DA
+
+[LongTermKey]
+Key=6ED9D0EDA63EF1623EFA7EDABB1BA188
+Authenticated=0
+EncSize=16
+EDiv=21050
+Rand=13897211094044290655
+
+[DeviceID]
+Source=2
+Vendor=1133
+Product=45089
+Version=7
+```
 
 
 

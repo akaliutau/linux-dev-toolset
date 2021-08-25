@@ -137,6 +137,7 @@ testing:
 
 ```
 sudo docker run hello-world
+sudo docker ps
 ```
 
 
@@ -148,6 +149,14 @@ sudo docker run hello-world
 sudo apt install wget
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
+```
+
+Setup alternative browser like SlimJet:
+
+Download a package manually from https://www.slimjet.com/en/postdl.php?version=lnx64&type=deb, and install it:
+
+```
+sudo apt install ./slimjet_amd64.deb
 ```
 
 * Curl
@@ -167,8 +176,8 @@ sudo service network-manager restart
 
 After installation condifure the VPN-connection.
 
-1. Click the network icon in the upper right corner of the activity field and choose VPN-connections -> Configure VPN.
-2. Choose Import a saved VPN configuration in a .ovpn file
+1. Go to settings -> network -> add VPN
+2. Choose a saved VPN configuration in a .ovpn file
 
 # Dev tools
 
@@ -244,6 +253,8 @@ sudo apt install nomacs
 sudo apt install mpv
 ```
 
+set default settings for mpv in /etc/mpv/mpv.conf
+
 * ffmpeg
 
 ```
@@ -295,7 +306,12 @@ sudo apt update
 sudo apt install meld
 ```
 
+# Uninstalling packages
 
-
- 
+```
+sudo apt-get remove package_name
+sudo apt-get purge package_name
+sudo apt-get autoremove
+sudo apt-get clean
+``` 
 

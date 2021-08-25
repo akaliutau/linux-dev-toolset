@@ -56,10 +56,9 @@ update-alternatives --quiet --set gdm3-theme.gresource "$source"
 cd /usr/local/share
 rmdir --ignore-fail-on-non-empty -p gnome-shell/theme
 echo "
-			     		---------------
-						|Reset Success|
-						---------------
-				Changes will be effective after a Reboot"
+Reset Success
+---------------
+Changes will be effective after a Reboot"
 exit 1
 fi
 ;;
@@ -165,10 +164,9 @@ check=$(update-alternatives --query gdm3-theme.gresource | grep Value | grep /us
 if [ "$check" == "pass" ]
 then
 echo "
-			     		---------
-						|Success|
-						---------
-				  Reboot OS to make changes effective"
+Success
+---------
+Reboot OS to make changes effective"
 else
 echo Failure
 exit 1

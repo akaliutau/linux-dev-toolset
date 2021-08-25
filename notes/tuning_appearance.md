@@ -7,6 +7,7 @@
 1. Install libglib2 package with the command
 
 ```
+sudo apt-get update
 sudo apt install libglib2.0-dev
 ```
 

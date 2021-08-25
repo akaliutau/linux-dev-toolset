@@ -97,6 +97,35 @@ sudo apt install python3.9
 python --version
 ```
 
+* Node.js (Installing Using the Node Version Manager)
+
+```
+sudo apt update
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+source ~/.bashrc
+nvm list-remote
+```
+
+Install  the latest LTS version:
+
+```
+nvm install v14.10.0
+node -v
+```
+
+* Node.js (Installing with Apt Using a NodeSource PPA)
+
+```
+cd ~
+curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
+nano nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt install nodejs
+```
+
+The NodeSource nodejs package contains both the node binary and npm, so you don’t need to install npm separately.
+
+
 * Docker
 
 1. First, Uninstall old versions. Older versions of Docker were called docker, docker.io, or docker-engine

@@ -274,6 +274,12 @@ sudo apt update
 sudo apt install nomacs
 ```
 
+For advanced image manipulations one can use [digiKam](https://github.com/KDE/digikam):
+
+```
+sudo apt install digikam
+```
+
 # Multimedia
 
 * mpv player

@@ -109,7 +109,7 @@ nvm list-remote
 Install  the latest LTS version:
 
 ```
-nvm install v14.10.0
+nvm install v14.17.0
 node -v
 ```
 
@@ -118,7 +118,7 @@ node -v
 ```
 cd ~
 curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
-nano nodesource_setup.sh
+nano nodesource_setup.sh (choose the correct base version - normally 14.x or 16.x)
 sudo bash nodesource_setup.sh
 sudo apt install nodejs
 ```

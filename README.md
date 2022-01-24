@@ -333,6 +333,15 @@ sudo apt update
 sudo apt-get install youtube-dl
 ```
 
+Other way:
+
+```
+wget http://ftp.de.debian.org/debian/pool/main/y/youtube-dl/youtube-dl_2021.12.17-1_all.deb
+sudo apt install ./youtube-dl_2021.12.17-1_all.deb
+whereis youtube-dl
+alias youtube-dl='python3 /usr/bin/youtube-dl'
+```
+
 * simple screen recorder (screen recorder)
 
 ```

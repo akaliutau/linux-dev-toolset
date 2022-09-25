@@ -79,12 +79,39 @@ sudo apt-get update
 sudo apt install openjdk-11-jdk
 ```
 
+To use multiple SDK on the same machine make use of `update-alternatives`, f.e.
+
+```
+sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
+```
+
 * Maven
 
 ```
 sudo apt update
 sudo apt install maven
 mvn -version
+```
+
+Manual installation (can be usefull for newest java 17, as the default 3.6.3 for Ubuntu 20.04 does not work)
+
+```
+curl -O https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.zip
+sudo unzip apache-maven-3.8.6-bin.zip -d /usr/share/
+```
+Update profile at `/etc/profile.d/maven.sh`:
+
+```
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export M2_HOME=<path to .m2>
+export MAVEN_HOME=/use/share/apache-maven-3.8.6
+export PATH=${MAVEN_HOME}/bin:${PATH}
+```
+
+and export newly added settings:
+
+```
+source /etc/profile.d/maven.sh
 ```
 
 * Python
